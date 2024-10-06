@@ -1,0 +1,28 @@
+[
+  {
+    "listing": "/lectures/index.html",
+    "items": [
+      "/lectures/Chapter-1-Introduction/01-Introduction.html",
+      "/lectures/Chapter-2-Quarto/02-0-Github-sublime-merge.html",
+      "/lectures/Chapter-2-Quarto/02-1-Quarto-introduction.html",
+      "/lectures/Chapter-3-DataWrangling/03-1-input-output.html",
+      "/lectures/Chapter-3-DataWrangling/03-2-data-wrangling-dplyr.html",
+      "/lectures/Chapter-3-DataWrangling/03-3-reshape-merge.html",
+      "/lectures/Chapter-4-Data-Visualization/04-1-data-visualization-basics.html",
+      "/lectures/Chapter-4-Data-Visualization/04-2-more-information.html",
+      "/lectures/Chapter-4-Data-Visualization/04-3-fine-tuning.html",
+      "/lectures/Chapter-5-function-loop-parallel/05-1-function-loop-parallel.html",
+      "/lectures/Chapter-6-HowCodeProject/06-1-code_project_RStudio.html",
+      "/lectures/Chapter-7-Date-String/07-1-date-string.html",
+      "/lectures/Chapter-8-Table/08-1-make_table_flextable.html"
+    ]
+  },
+  {
+    "listing": "/exercises/index.html",
+    "items": [
+      "/exercises/1-1-data_wrangling_dplyr.html",
+      "/exercises/1-2-data_merging.html",
+      "/exercises/8-1-flextable.html"
+    ]
+  }
+]

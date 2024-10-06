@@ -1,0 +1,10 @@
+---
+title: Exercises
+listing:
+  contents: /
+  type: table
+  sort-ui: false
+  filter-ui: false
+  fields: 
+    - title
+---
