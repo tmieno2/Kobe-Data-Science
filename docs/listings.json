@@ -21,8 +21,7 @@
     "listing": "/exercises/index.html",
     "items": [
       "/exercises/1-1-data_wrangling_dplyr.html",
-      "/exercises/1-2-data_merging.html",
-      "/exercises/8-1-flextable.html"
+      "/exercises/1-2-data_merging.html"
     ]
   }
 ]

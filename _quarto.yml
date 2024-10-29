@@ -11,6 +11,7 @@ project:
     - "!lectures/Chapter-8-Table/test-quarto-live-table.qmd"
     - "!lectures/Chapter-8-Table/08-2-modelsummary.qmd"
     - "!exercises/date.qmd"
+    - "!exercises/8-1-flextable.qmd"
     - "!templates/"
 
 website:
