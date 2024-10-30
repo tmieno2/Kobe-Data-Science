@@ -26,6 +26,116 @@ library(tidyr)
 
 # Exercise 1
 
+## Problem 1
+
+**Datasets:** `data_long` synthetically generated withint R below.
+
+**Task:** Reshape the `data_long` dataset to wide format, where each year becomes a separate column. using `tidyr::pivor_wider()`.
+
+**Load and Create Dataset:**
+
+```{webr-r}
+# create the dataset
+#| autorun: true
+set.seed(123)
+
+data_long <- 
+  data.frame(
+    id = rep(1:5, each = 3),
+    year = rep(2021:2023, times = 5),
+    value = sample(50:100, 15, replace = TRUE)
+  )
+```
+
+::: {.panel-tabset}
+
+### Work here
+
+```{webr-r}
+#--- work here ---#
+
+
+
+
+```
+
+Here is the output of successfully reshaped data:
+
+```{webr-r}
+#| context: output
+(
+  data_wide <-
+    data_long %>%
+    tidyr::pivot_wider(names_from = "year", values_from = "value")
+)
+```
+
+### Answer
+
+```{webr-r}
+# Pivot data from wide to long
+#| autorun: true
+data_long %>%
+    tidyr::pivot_wider(names_from = "year", values_from = "value")
+```
+:::
+<!--end of panel-->
+
+## Problem 2
+
+**Datasets:** `data_wide` (`data_long` converted to wide format)
+
+**Task:** Reshape the `data_wide` dataset to long format using `tidyr::pivor_longer()`. In the new dataset, 
+
++ name the column that will hold the current column names `year`.
++ name the column that will hold the values `value`.
+
+**Load and Create Dataset:**
+```{webr-r}
+# create the dataset
+#| autorun: true
+data_long
+```
+
+::: {.panel-tabset}
+
+### Work here
+
+```{webr-r}
+#--- work here ---#
+
+
+
+
+```
+
+Here is the output of successfully reshaped data:
+
+```{webr-r}
+#| context: output
+data_long %>%
+  tidyr::pivot_longer(
+    cols = - id, 
+    names_to = "year", 
+    values_to = "value"
+  )
+```
+
+### Answer
+
+```{webr-r}
+# Pivot data from wide to long
+data_long %>%
+  tidyr::pivot_longer(
+    cols = - id, 
+    names_to = "year", 
+    values_to = "value"
+  )
+```
+:::
+<!--end of panel-->
+
+# Exercise 2
 
 ## Problem 1
 
@@ -129,4 +239,5 @@ crop_data_wide %>%
 ```
 :::
 <!--end of panel-->
+
 

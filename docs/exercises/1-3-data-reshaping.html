@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -356,7 +356,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# create the dataset\n(\ncrop_data <-\n  tibble(\n    year = rep(2020:2022, each = 3),\n    crop = rep(c(\"Wheat\", \"Corn\", \"Soybean\"), times = 3),\n    yield = c(3.1, 3.5, 2.8, 3.2, 3.6, 2.9, 3.0, 3.7, 3.1)\n  )\n)","id":1,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-1","out-width":"80%","autorun":"true","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"#--- work here ---#\n\n\n","id":2,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-2","out-width":"80%","autorun":"false","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"( \ncrop_data_wide <-  \n  crop_data %>%\n  tidyr::pivot_wider(names_from = \"crop\", values_from = \"yield\", names_prefix = \"yield_\")\n)","id":3,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-3","out-width":"80%","autorun":"true","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"output","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"# Pivot data from wide to long\ncrop_data %>%\n  tidyr::pivot_wider(names_from = \"crop\", values_from = \"yield\", names_prefix = \"yield_\")","id":4,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-4","out-width":"80%","autorun":"true","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"# create the dataset\ncrop_data_wide","id":5,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-5","out-width":"80%","autorun":"true","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"#--- work here ---#\n\n\n","id":6,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-6","out-width":"80%","autorun":"false","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"crop_data_wide %>%\n  tidyr::pivot_longer(cols = -year, names_to = \"crop\", values_to = \"yield\", names_prefix = \"yield_\")","id":7,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-7","out-width":"80%","autorun":"true","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"output","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}},{"code":"# Pivot data from wide to long\ncrop_data_wide %>%\n  tidyr::pivot_longer(\n    cols = -year, \n    names_to = \"crop\", \n    values_to = \"yield\", \n    names_prefix = \"yield_\"\n  )","id":8,"options":{"editor-max-height":"","editor-font-scale":"0.7","results":"markup","editor-word-wrap":"true","classes":"","dpi":72,"fig-cap":"","label":"unnamed-chunk-8","out-width":"80%","autorun":"false","warning":"true","message":"true","fig-width":7,"read-only":"false","context":"interactive","output":"true","editor-quick-suggestions":"false","fig-height":5,"comment":"","out-height":""}}];
+globalThis.qwebrCellDetails = [{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"interactive","label":"unnamed-chunk-1","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# create the dataset\nset.seed(123)\n\ndata_long <- \n  data.frame(\n    id = rep(1:5, each = 3),\n    year = rep(2021:2023, times = 5),\n    value = sample(50:100, 15, replace = TRUE)\n  )","id":1},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"false","context":"interactive","label":"unnamed-chunk-2","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"#--- work here ---#\n\n\n","id":2},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"output","label":"unnamed-chunk-3","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"(\n  data_wide <-\n    data_long %>%\n    tidyr::pivot_wider(names_from = \"year\", values_from = \"value\")\n)","id":3},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"interactive","label":"unnamed-chunk-4","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# Pivot data from wide to long\ndata_long %>%\n    tidyr::pivot_wider(names_from = \"year\", values_from = \"value\")","id":4},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"interactive","label":"unnamed-chunk-5","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# create the dataset\ndata_long","id":5},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"false","context":"interactive","label":"unnamed-chunk-6","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"#--- work here ---#\n\n\n","id":6},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"output","label":"unnamed-chunk-7","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"data_long %>%\n  tidyr::pivot_longer(\n    cols = - id, \n    names_to = \"year\", \n    values_to = \"value\"\n  )","id":7},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"false","context":"interactive","label":"unnamed-chunk-8","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# Pivot data from wide to long\ndata_long %>%\n  tidyr::pivot_longer(\n    cols = - id, \n    names_to = \"year\", \n    values_to = \"value\"\n  )","id":8},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"interactive","label":"unnamed-chunk-9","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# create the dataset\n(\ncrop_data <-\n  tibble(\n    year = rep(2020:2022, each = 3),\n    crop = rep(c(\"Wheat\", \"Corn\", \"Soybean\"), times = 3),\n    yield = c(3.1, 3.5, 2.8, 3.2, 3.6, 2.9, 3.0, 3.7, 3.1)\n  )\n)","id":9},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"false","context":"interactive","label":"unnamed-chunk-10","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"#--- work here ---#\n\n\n","id":10},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"output","label":"unnamed-chunk-11","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"( \ncrop_data_wide <-  \n  crop_data %>%\n  tidyr::pivot_wider(names_from = \"crop\", values_from = \"yield\", names_prefix = \"yield_\")\n)","id":11},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"interactive","label":"unnamed-chunk-12","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# Pivot data from wide to long\ncrop_data %>%\n  tidyr::pivot_wider(names_from = \"crop\", values_from = \"yield\", names_prefix = \"yield_\")","id":12},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"interactive","label":"unnamed-chunk-13","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# create the dataset\ncrop_data_wide","id":13},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"false","context":"interactive","label":"unnamed-chunk-14","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"#--- work here ---#\n\n\n","id":14},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"true","context":"output","label":"unnamed-chunk-15","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"crop_data_wide %>%\n  tidyr::pivot_longer(cols = -year, names_to = \"crop\", values_to = \"yield\", names_prefix = \"yield_\")","id":15},{"options":{"editor-quick-suggestions":"false","warning":"true","autorun":"false","context":"interactive","label":"unnamed-chunk-16","editor-max-height":"","message":"true","out-width":"80%","fig-height":5,"read-only":"false","output":"true","editor-word-wrap":"true","classes":"","comment":"","editor-font-scale":"0.7","fig-width":7,"results":"markup","fig-cap":"","out-height":"","dpi":72},"code":"# Pivot data from wide to long\ncrop_data_wide %>%\n  tidyr::pivot_longer(\n    cols = -year, \n    names_to = \"crop\", \n    values_to = \"yield\", \n    names_prefix = \"yield_\"\n  )","id":16}];
 
 </script>
 <script type="module">
@@ -1612,6 +1612,11 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#problem-1" id="toc-problem-1" class="nav-link" data-scroll-target="#problem-1"><span class="header-section-number">1.1</span> Problem 1</a></li>
   <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2"><span class="header-section-number">1.2</span> Problem 2</a></li>
   </ul></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">2</span> Exercise 2</a>
+  <ul class="collapse">
+  <li><a href="#problem-1-1" id="toc-problem-1-1" class="nav-link" data-scroll-target="#problem-1-1"><span class="header-section-number">2.1</span> Problem 1</a></li>
+  <li><a href="#problem-2-1" id="toc-problem-2-1" class="nav-link" data-scroll-target="#problem-2-1"><span class="header-section-number">2.2</span> Problem 2</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -1929,8 +1934,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <h1 data-number="1"><span class="header-section-number">1</span> Exercise 1</h1>
 <section id="problem-1" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="problem-1"><span class="header-section-number">1.1</span> Problem 1</h2>
-<p><strong>Datasets:</strong> <code>crop_data</code> synthetically generated withint R.</p>
-<p><strong>Task:</strong> Reshape the <code>economics</code> dataset to wide format using <code>tidyr::pivor_wider()</code>. In doing so, append <code>yield_</code> to the new column names using the <code>names_prefix</code> option.</p>
+<p><strong>Datasets:</strong> <code>data_long</code> synthetically generated withint R below.</p>
+<p><strong>Task:</strong> Reshape the <code>data_long</code> dataset to wide format, where each year becomes a separate column. using <code>tidyr::pivor_wider()</code>.</p>
 <p><strong>Load and Create Dataset:</strong></p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1954,8 +1959,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </section>
 <section id="problem-2" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="problem-2"><span class="header-section-number">1.2</span> Problem 2</h2>
-<p><strong>Datasets:</strong> the <code>crop_data_wide</code> (<code>crop_data</code> in wide format)</p>
-<p><strong>Task:</strong> Reshape the <code>economics</code> dataset to long format using <code>tidyr::pivor_longer()</code>. In doing so, remove <code>yield_</code> from the column names using the <code>names_prefix</code> option.</p>
+<p><strong>Datasets:</strong> <code>data_wide</code> (<code>data_long</code> converted to wide format)</p>
+<p><strong>Task:</strong> Reshape the <code>data_wide</code> dataset to long format using <code>tidyr::pivor_longer()</code>. In the new dataset,</p>
+<ul>
+<li>name the column that will hold the current column names <code>year</code>.</li>
+<li>name the column that will hold the values <code>value</code>.</li>
+</ul>
 <p><strong>Load and Create Dataset:</strong></p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1971,6 +1980,59 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+</div>
+</div>
+<!--end of panel-->
+</section>
+</section>
+<section id="exercise-2" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Exercise 2</h1>
+<section id="problem-1-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="problem-1-1"><span class="header-section-number">2.1</span> Problem 1</h2>
+<p><strong>Datasets:</strong> <code>crop_data</code> synthetically generated withint R.</p>
+<p><strong>Task:</strong> Reshape the <code>economics</code> dataset to wide format using <code>tidyr::pivor_wider()</code>. In doing so, append <code>yield_</code> to the new column names using the <code>names_prefix</code> option.</p>
+<p><strong>Load and Create Dataset:</strong></p>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here is the output of successfully reshaped data:</p>
+<div id="qwebr-insertion-location-11"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="qwebr-insertion-location-12"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+</div>
+</div>
+<!--end of panel-->
+</section>
+<section id="problem-2-1" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="problem-2-1"><span class="header-section-number">2.2</span> Problem 2</h2>
+<p><strong>Datasets:</strong> the <code>crop_data_wide</code> (<code>crop_data</code> in wide format)</p>
+<p><strong>Task:</strong> Reshape the <code>economics</code> dataset to long format using <code>tidyr::pivor_longer()</code>. In doing so, remove <code>yield_</code> from the column names using the <code>names_prefix</code> option.</p>
+<p><strong>Load and Create Dataset:</strong></p>
+<div id="qwebr-insertion-location-13"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="qwebr-insertion-location-14"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here is the output of successfully reshaped data:</p>
+<div id="qwebr-insertion-location-15"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="qwebr-insertion-location-16"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
 </div>
