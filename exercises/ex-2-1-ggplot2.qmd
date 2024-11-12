@@ -17,6 +17,7 @@ filters:
 # Basics
 
 ```{r}
+#| include: false
 library(dplyr)
 library(ggplot2)
 library(datasets)
