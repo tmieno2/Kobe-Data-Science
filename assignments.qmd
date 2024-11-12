@@ -6,7 +6,7 @@ title: Assignments
 
 **Instruction:**
 
-1. Visit [here](https://www.dropbox.com/scl/fo/ksuiu7zn1vl5baxmpnqwz/ADbLBTK7JLtTxoGDDh7hs7Q?rlkey=jnylnevj305ydb4zdsh7c4m1y&st=tmew5dx7&dl=0) and download all the files.
+1. Visit [here](https://www.dropbox.com/scl/fo/s0n3520p7fog85tf7ojg6/AEpa-HRgX6xbgTNFQuSSdOU?rlkey=c6y2zudcea4st8ikzatpzv452&st=bqe5td9s&dl=0) and download all the files.
 2. Open **Assignment-1-student.qmd** and start working on problems.
 
 ## Assignment 2
