@@ -188,7 +188,8 @@ Here is the output you should be getting:
 ```{r}
 #| echo: false 
 ggplot(data = mtcars) +
-  geom_point(aes(x = wt, y = mpg, color = as.factor(gear))) 
+  geom_point(aes(x = wt, y = mpg, color = as.factor(gear)))  +
+  facet_wrap(~cyl)
 ```
 
 ### Answer
@@ -221,7 +222,8 @@ Here is the output you should be getting:
 ```{r}
 #| echo: false
 ggplot(data = diamonds) +
-  geom_boxplot(aes(x = cut, y = price, fill = cut))
+  geom_boxplot(aes(x = cut, y = price, fill = cut)) +
+  facet_wrap(~color)
 ```
 
 ### Answer
