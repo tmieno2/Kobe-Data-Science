@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ex-1-2: Merge Datasets – Data Science with R</title>
+<title>Ex-2-2: Fine tuning figures – Data Science with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -334,7 +368,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['dplyr', 'ggplot2', 'tibble'];
+globalThis.qwebrInstallRPackagesList = ['dplyr', 'ggplot2', 'datasets', 'ggthemes'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -356,7 +390,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"data(economics, package = \"ggplot2\")\n\n# Creating a fictitious dataset of financial events\nfinancial_events <- tibble(\n  date = as.Date(c(\"1970-01-01\", \"1980-01-01\", \"1990-01-01\", \"2000-01-01\")),\n  event = c(\"Event A\", \"Event B\", \"Event C\", \"Event D\")\n)","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-1","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":2,"code":"#--- work here ---#\n\n\n","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-2","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":3,"code":"economics_with_events <- left_join(economics, financial_events, by = \"date\")","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-3","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":4,"code":"data(chickwts)\n\n# Creating a fictitious dataset for feed pricing\nfeed_prices <- tibble(\n  feed = unique(chickwts$feed),\n  price_per_kg = runif(length(unique(chickwts$feed)), 10, 50)\n)","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-4","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":5,"code":"#--- work here ---#\n\n\n","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-5","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":6,"code":"chicks_with_prices <- left_join(chickwts, feed_prices, by = \"feed\")","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-6","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":7,"code":"data(PlantGrowth)\n\n# Creating a fictitious dataset for scientific teams\nteams <- tibble(\n  group = unique(PlantGrowth$group),\n  team = c(\"Team Alpha\", \"Team Beta\", \"Team Gamma\")\n)","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-7","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":8,"code":"#--- work here ---#\n\n\n","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-8","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":9,"code":"plants_with_teams <- left_join(PlantGrowth, teams, by = \"group\")","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-9","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":10,"code":"enrollment <- tibble(\n  student_id = c(101, 102, 103, 101),\n  semester = c(\"Fall\", \"Fall\", \"Spring\", \"Spring\"),\n  course_code = c(\"ENG101\", \"MAT101\", \"SCI101\", \"ENG101\")\n)\n\ngrades <- tibble(\n  student_id = c(101, 102, 103, 101),\n  semester = c(\"Fall\", \"Fall\", \"Spring\", \"Spring\"),\n  course_code = c(\"ENG101\", \"MAT101\", \"SCI101\", \"MAT101\"),\n  grade = c(\"A\", \"B+\", \"A-\", \"B\")\n)","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-10","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":11,"code":"#--- work here ---#\n\n\n","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-11","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":12,"code":"student_grades <- left_join(enrollment, grades, by = c(\"student_id\", \"semester\", \"course_code\"))","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-12","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":13,"code":"employees <- tibble(\n  emp_id = c(1, 2, 3, 4),\n  name = c(\"Alice\", \"Bob\", \"Charlie\", \"David\"),\n  department = c(\"IT\", \"HR\", \"IT\", \"Finance\"),\n  role = c(\"Developer\", \"Recruiter\", \"Manager\", \"Analyst\")\n)\n\nprojects <- tibble(\n  project_id = c(\"P1\", \"P2\", \"P3\", \"P4\"),\n  department = c(\"IT\", \"HR\", \"IT\", \"Finance\"),\n  role = c(\"Developer\", \"Recruiter\", \"Manager\", \"Manager\"),\n  project_name = c(\"App Dev\", \"Hiring Campaign\", \"IT Strategy\", \"Budget Planning\")\n)","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-13","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":14,"code":"#--- work here ---#\n\n\n","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-14","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":15,"code":"employee_projects <- left_join(employees, projects, by = c(\"department\", \"role\"))","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-15","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":16,"code":"transactions <- tibble(\n  transaction_id = 1:4,\n  transaction_date = as.Date(c(\"2023-01-01\", \"2023-01-02\", \"2023-01-01\", \"2023-01-03\")),\n  product_code = c(\"X001\", \"X002\", \"X001\", \"X003\")\n)\n\npricing <- tibble(\n  price_date = as.Date(c(\"2023-01-01\", \"2023-01-02\", \"2023-01-01\", \"2023-01-03\")),\n  product_code = c(\"X001\", \"X002\", \"X003\", \"X003\"),\n  price = c(100, 150, 90, 95)\n)","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-16","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":17,"code":"#--- work here ---#\n\n\n","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-17","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}},{"id":18,"code":"transaction_pricing <- left_join(transactions, pricing, by = c(\"transaction_date\" = \"price_date\", \"product_code\"))","options":{"editor-max-height":"","comment":"","fig-width":7,"results":"markup","out-width":"80%","editor-quick-suggestions":"false","editor-font-scale":"0.7","dpi":72,"output":"true","warning":"true","out-height":"","fig-height":5,"autorun":"false","message":"true","label":"unnamed-chunk-18","classes":"","read-only":"false","fig-cap":"","context":"interactive","editor-word-wrap":"true"}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"install.packages(\"r.spatial.workshop.datasets\", repos = c(\"https://tmieno2.r-universe.dev\", \"https://cran.r-project.org\"))","options":{"context":"setup","message":"true","out-height":"","warning":"true","output":"true","label":"unnamed-chunk-1","editor-font-scale":"0.7","out-width":"100%","fig-cap":"","comment":"","results":"markup","fig-width":7,"editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","autorun":"true","editor-word-wrap":"true","fig-height":5,"dpi":72,"classes":""}},{"id":2,"code":"data(diamonds)\n\n#--- work here ---#\n\n","options":{"context":"interactive","message":"true","out-height":"","warning":"true","output":"true","label":"unnamed-chunk-2","editor-font-scale":"0.7","out-width":"100%","fig-cap":"","comment":"","results":"markup","fig-width":7,"editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","autorun":"false","editor-word-wrap":"true","fig-height":5,"dpi":72,"classes":""}},{"id":3,"code":"data(iris)\n\n#--- work here ---#\n\n","options":{"context":"interactive","message":"true","out-height":"","warning":"true","output":"true","label":"unnamed-chunk-3","editor-font-scale":"0.7","out-width":"100%","fig-cap":"","comment":"","results":"markup","fig-width":7,"editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","autorun":"false","editor-word-wrap":"true","fig-height":5,"dpi":72,"classes":""}},{"id":4,"code":"data(mpg)\n#--- work here ---#\n\n","options":{"context":"interactive","message":"true","out-height":"","warning":"true","output":"true","label":"unnamed-chunk-4","editor-font-scale":"0.7","out-width":"100%","fig-cap":"","comment":"","results":"markup","fig-width":7,"editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","autorun":"false","editor-word-wrap":"true","fig-height":5,"dpi":72,"classes":""}},{"id":5,"code":"data(county_yield, package = \"r.spatial.workshop.datasets\")\n\ncounty_yield_y <- \n  dplyr::select(county_yield, -geometry) %>%\n  dplyr::group_by(year, state_name) %>%\n  dplyr::summarise(corn_yield = mean(corn_yield))\n\n#--- work here ---#\n\n","options":{"context":"interactive","message":"true","out-height":"","warning":"true","output":"true","label":"unnamed-chunk-5","editor-font-scale":"0.7","out-width":"100%","fig-cap":"","comment":"","results":"markup","fig-width":7,"editor-quick-suggestions":"false","editor-max-height":"","read-only":"false","autorun":"false","editor-word-wrap":"true","fig-height":5,"dpi":72,"classes":""}}];
 
 </script>
 <script type="module">
@@ -1555,7 +1589,8 @@ globalThis.qwebrExecuteCode = async function (
 </script>
 
 
-<meta property="og:title" content="Ex-1-2: Merge Datasets – Data Science with R">
+<meta property="og:title" content="Ex-2-2: Fine tuning figures – Data Science with R">
+<meta property="og:description" content="">
 <meta property="og:site_name" content="Data Science with R">
 </head>
 
@@ -1607,18 +1642,10 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#merging-with-a-single-key" id="toc-merging-with-a-single-key" class="nav-link active" data-scroll-target="#merging-with-a-single-key"><span class="header-section-number">1</span> Merging with a single key</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">1.1</span> Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">1.2</span> Exercise 2</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">1.3</span> Exercise 3</a></li>
-  </ul></li>
-  <li><a href="#merging-with-multiple-keys" id="toc-merging-with-multiple-keys" class="nav-link" data-scroll-target="#merging-with-multiple-keys"><span class="header-section-number">2</span> Merging with multiple keys</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1-1" id="toc-exercise-1-1" class="nav-link" data-scroll-target="#exercise-1-1"><span class="header-section-number">2.1</span> Exercise 1</a></li>
-  <li><a href="#exercise-2-1" id="toc-exercise-2-1" class="nav-link" data-scroll-target="#exercise-2-1"><span class="header-section-number">2.2</span> Exercise 2</a></li>
-  <li><a href="#exercise-3-1" id="toc-exercise-3-1" class="nav-link" data-scroll-target="#exercise-3-1"><span class="header-section-number">2.3</span> Exercise 3</a></li>
-  </ul></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1"><span class="header-section-number">1</span> Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">2</span> Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">3</span> Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">4</span> Exercise 4</a></li>
   </ul>
 </nav>
 </nav>
@@ -1915,7 +1942,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ex-1-2: Merge Datasets</h1>
+<h1 class="title">Ex-2-2: Fine tuning figures</h1>
 </div>
 
 
@@ -1932,144 +1959,256 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<section id="merging-with-a-single-key" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Merging with a single key</h1>
-<section id="exercise-1" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">1.1</span> Exercise 1</h2>
-<p><strong>Datasets:</strong> <code>economics</code> from the <code>ggplot2</code> package and a fictitious dataset for financial events.</p>
-<p><strong>Task:</strong> Merge the <code>economics</code> dataset with a fictitious dataset that provides a financial event for specific dates. Join these datasets using <code>left_join</code> based on <code>date</code>.</p>
-<p><strong>Load and Create Dataset:</strong></p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="exercise-1" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">1</span> Exercise 1</h2>
+<p>Using the <code>diamonds</code> data,</p>
+<ul>
+<li>Create a histogram for diamond prices (<code>price</code>).
+<ul>
+<li>Set bin fill color to a color you like using its Hex code</li>
+<li>Set bin border color to a color you like using its Hex code</li>
+<li>Set <code>bins = 30</code></li>
+</ul></li>
+<li>Change the panel background color to <code>#6f6f6f</code> using the panel.background option inside <code>theme()</code>.</li>
+<li>Increase the x-axis and y-axis label text size to 12</li>
+<li>Change the y-axis breaks to <code>seq(0, 15000, by = 1000)</code></li>
+<li>Change the color and size of x-axis title to “blue” and 16, respectively</li>
+<li>Change the color and size of y-axis title to “red” and 16, respectively</li>
+<li>Remove the minor grid lines of the y-axis</li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here is the output you should be getting:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex-2-2-ggplot2-fine-tune_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> price),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"#000000"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"#c90076"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">bins =</span> <span class="dv">30</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">color =</span> <span class="st">"blue"</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">color =</span> <span class="st">"red"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#6f6f6f"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">15000</span>, <span class="at">by =</span> <span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </div>
 </div>
-<!--end of panel-->
+</div>
 </section>
-<section id="exercise-2" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">1.2</span> Exercise 2</h2>
-<p><strong>Datasets:</strong> <code>chickwts</code> from the <code>datasets</code> package.</p>
-<p><strong>Task:</strong> The <code>chickwts</code> dataset contains the weight of chicks alongside feed type. Create a fictitious dataset that provides pricing information for each feed type. Join these datasets based on the <code>feed</code> type.</p>
-<p><strong>Load Dataset:</strong></p>
-<div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="exercise-2" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">2</span> Exercise 2</h2>
+<p>Using the <code>iris</code> data,</p>
+<ul>
+<li>Generate a boxplot of sepal lengths (<code>Sepal.Length</code>) for each species (<code>Species</code>)</li>
+<li>Apply one of the pre-made themes by the <code>ggthemes</code> package</li>
+<li>Pick one palette from the list of “qualitative” palettes by the <code>RColorBrewer</code> package (You can see the list by running <code>display.brewer.all(type = "qual")</code>.)</li>
+<li>Use the palette you picked in scale_A_B() to change the color scheme from the default
+<ul>
+<li>A: <code>fill</code> or <code>color</code></li>
+<li>B: <code>brewer</code> or <code>distiller</code></li>
+</ul></li>
+<li>Place the legend title at the top of the legend keys</li>
+<li>Change the y-axis title to “Sepal Length”</li>
+<li>Change the breaks of the y-axis to <code>seq(4, 8, by = 0.5)</code></li>
+<li>Make the font size of x-axis text 12</li>
+<li>Change the color x-axis title to a color you like using the Hex code</li>
+<li>Place the legend at the bottom of the figure</li>
+<li>Change the width of the legend keys to 1cm.</li>
+<li>Remove the minor grid lines of the y-axis</li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div id="qwebr-insertion-location-5"></div>
+<div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here is the output you should be getting:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex-2-2-ggplot2-fine-tune_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div id="qwebr-insertion-location-6"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">"Set2"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">title.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Sepal Length"</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"#cc0000"</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"cm"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="at">by =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-3" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">1.3</span> Exercise 3</h2>
-<p><strong>Datasets:</strong> <code>PlantGrowth</code> from the <code>datasets</code> package.</p>
-<p><strong>Task:</strong> The <code>PlantGrowth</code> dataset provides information about the weight of plants under different treatment conditions. Create a fictitious dataset that assigns a scientific team responsible for each treatment type. Merge these datasets based on the <code>group</code> column.</p>
-<p><strong>Load Dataset:</strong></p>
-<div id="qwebr-insertion-location-7"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="exercise-3" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">3</span> Exercise 3</h2>
+<p>Using the <code>mpg</code> data,</p>
+<ul>
+<li>Create a scatter plot of highway miles-per-gallon (<code>hwy</code>) against engine displacement (<code>displ</code>).
+<ul>
+<li>Modify the point color based on drive type (<code>drv</code>).</li>
+<li>Set the size of the points to 3</li>
+</ul></li>
+<li>Use scale_<code>A</code><em>viridis</em><code>B</code>() to apply the Viridis color scale
+<ul>
+<li><code>A</code>: <code>color</code> or <code>fill</code></li>
+<li><code>B</code>: <code>c</code> (continuous) or <code>d</code> (discrete)</li>
+</ul></li>
+<li>Legend:
+<ul>
+<li>Rename the legend title to “Drive Type”.</li>
+<li>Place the legend at the bottom of the figure</li>
+</ul></li>
+<li>Axis
+<ul>
+<li>Change the y-axis and x-xis titles to “Miles per gallon” and “Displacement”, respectively</li>
+<li>Change the font size of y-axis and x-axis titles to 16</li>
+<li>Change the font size of y-axis and x-axis texts to 12</li>
+</ul></li>
+<li>Others:
+<ul>
+<li>Make the background color of the panel to <code>#f3fbf5</code> using the <code>panel.background</code> option inside <code>theme()</code>.</li>
+</ul></li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div id="qwebr-insertion-location-8"></div>
+<div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here is the output you should be getting:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex-2-2-ggplot2-fine-tune_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div id="qwebr-insertion-location-9"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">shape =</span> drv, <span class="at">color =</span> class), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Drive Type"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"f"</span> <span class="ot">=</span> <span class="dv">16</span>, <span class="st">"r"</span> <span class="ot">=</span> <span class="dv">17</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="dv">18</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Front"</span>, <span class="st">"Rear"</span>, <span class="st">"Four-wheel"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </div>
 </div>
-<!--end of panel-->
+</div>
 </section>
-</section>
-<section id="merging-with-multiple-keys" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Merging with multiple keys</h1>
-<section id="exercise-1-1" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="exercise-1-1"><span class="header-section-number">2.1</span> Exercise 1</h2>
-<p><strong>Datasets:</strong> Two fictitious datasets: one containing student enrollment details and another containing their grades.</p>
-<p><strong>Task:</strong> Join the <code>enrollment</code> dataset with the <code>grades</code> dataset using <code>student_id</code> and <code>semester</code> as the key variables.</p>
-<p><strong>Load Dataset:</strong></p>
-<div id="qwebr-insertion-location-10"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="exercise-4" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">4</span> Exercise 4</h2>
+<p>Using <code>county_yield_y</code>,</p>
+<ul>
+<li>Create a line plot of corn yield (<code>corn_yield</code>) against year (<code>year</code>) faceted by State (<code>state_name</code>)</li>
+<li>Apply <code>theme_wsj()</code></li>
+<li>Axis
+<ul>
+<li>Change the y-axis and x-axis titles to “Corn Yield (bu/acre)” and “Year”, respectively</li>
+<li>Change the breaks of x-axis to <code>2000:2018</code></li>
+</ul></li>
+<li>Theme
+<ul>
+<li>Change the font size of x-axis and y-axis titles to 16</li>
+<li>Change the font size of x-axis and y-axis texts to 12</li>
+<li>Change the background color of the strips to #fbf3f9</li>
+<li>Change the background border color of the strips to blue</li>
+<li>Change the strip text size to 12 and set its angle to 0</li>
+</ul></li>
+</ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div id="qwebr-insertion-location-11"></div>
+<div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Here is the output you should be getting:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ex-2-2-ggplot2-fine-tune_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div id="qwebr-insertion-location-12"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> county_yield_y) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> corn_yield)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(state_name <span class="sc">~</span> .) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_wsj</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Corn Yield (bu/acre)"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2000</span><span class="sc">:</span><span class="dv">2018</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"#fbf3f9"</span>, <span class="at">color =</span> <span class="st">"blue"</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">angle =</span> <span class="dv">0</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </div>
 </div>
-<!--end of panel-->
-</section>
-<section id="exercise-2-1" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="exercise-2-1"><span class="header-section-number">2.2</span> Exercise 2</h2>
-<p><strong>Datasets:</strong> Two fictitious datasets: one listing employee details and another detailing their project assignments.</p>
-<p><strong>Task:</strong> Merge the <code>employees</code> dataset with the <code>projects</code> dataset using both <code>department</code> and <code>role</code> as the key variables.</p>
-<p><strong>Load Dataset:</strong></p>
-<div id="qwebr-insertion-location-13"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Answer</a></li></ul>
-<div class="tab-content">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div id="qwebr-insertion-location-14"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<div id="qwebr-insertion-location-15"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-<!--end of panel-->
-</section>
-<section id="exercise-3-1" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="exercise-3-1"><span class="header-section-number">2.3</span> Exercise 3</h2>
-<p><strong>Datasets:</strong> Two fictitious datasets: one containing transaction records and another with product pricing.</p>
-<p><strong>Task:</strong> Join the <code>transactions</code> dataset with the <code>pricing</code> dataset using both <code>transaction_date</code> and <code>product_code</code> as the key variables.</p>
-<p><strong>Load Dataset:</strong></p>
-<div id="qwebr-insertion-location-16"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Work here</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Answer</a></li></ul>
-<div class="tab-content">
-<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
-<div id="qwebr-insertion-location-17"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
-<div id="qwebr-insertion-location-18"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
-</div>
-</div>
-<!--end of panel-->
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

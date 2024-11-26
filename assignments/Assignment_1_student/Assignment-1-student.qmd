@@ -1,6 +1,6 @@
 ---
 title: "Assignment 1"
-author: "Your Name Here"
+author: "Taro Mieno"
 format:
   html:
     number-sections: true
@@ -65,6 +65,10 @@ We have three separate datasets saved in various formats. Here are the list of d
 
 Import "data_CO_as1.rds" and assign the data to an R object called `ir_data`
 
+
+```{r}
+
+```
 
 ## Q2
 
